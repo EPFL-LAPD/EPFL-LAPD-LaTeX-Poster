@@ -1,0 +1,8 @@
+*.bfg
+*.aux
+*.log
+*.run.xml
+*.bcf
+*.blg
+*.bbl
+README.md
