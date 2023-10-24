@@ -1,0 +1,184 @@
+\documentclass[18pt, a0paper,portrait,fontscale=0.25]{baposter}
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage[T1]{fontenc}
+\usepackage[british,UKenglish,USenglish,english,american]{babel}
+
+\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{wrapfig}
+% \usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage[font=small,labelfont=bf]{caption} 
+\usepackage{wrapfig}
+\usepackage[linewidth=1pt]{mdframed}
+
+\def\di{\mathrm{d}}
+\def\dize{\,\mathrm{d}\zeta\mathrm{d}\eta}
+
+\usepackage{unicode-math}
+\usepackage{siunitx}
+\sisetup{math-micro=\text{µ},text-micro=µ}
+\usepackage{tikz}
+
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{0pt}%
+\setlength{\parskip}{1pt}%
+\setlength{\parsep}{0pt}%
+}
+
+\newenvironment{boenumerate}
+  {\begin{enumerate}\renewcommand\labelenumi{\textbf\theenumi.}}
+  {\end{enumerate}}
+\RequirePackage[                    % advanced quotes
+    strict=true,                    %   - warning are errors now
+    style=english%   - german quotes
+]{csquotes}
+
+\usepackage{lipsum}
+
+\usepackage[%
+  backend=biber,
+  url=false,
+  style=alphabetic,
+  % citestyle=authoryear,
+  maxnames=4,
+  minnames=3,
+  maxbibnames=99,
+  giveninits,
+uniquename=init]{biblatex}
+
+\addbibresource{references.bib}
+
+\DeclareBibliographyDriver{std}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{date}%
+  \newunit\newblock
+  \usebibmacro{finentry}}
+
+
+\DeclareBibliographyAlias{article}{std}
+\DeclareBibliographyAlias{book}{std}
+\DeclareBibliographyAlias{booklet}{std}
+\DeclareBibliographyAlias{collection}{std}
+\DeclareBibliographyAlias{inbook}{std}
+\DeclareBibliographyAlias{incollection}{std}
+\DeclareBibliographyAlias{inproceedings}{std}
+\DeclareBibliographyAlias{manual}{std}
+\DeclareBibliographyAlias{misc}{std}
+\DeclareBibliographyAlias{online}{std}
+\DeclareBibliographyAlias{patent}{std}
+\DeclareBibliographyAlias{periodical}{std}
+\DeclareBibliographyAlias{proceedings}{std}
+\DeclareBibliographyAlias{report}{std}
+\DeclareBibliographyAlias{thesis}{std}
+\DeclareBibliographyAlias{unpublished}{std}
+\DeclareBibliographyAlias{*}{std}
+
+
+
+\begin{document}
+\definecolor{darkred}{HTML}{ff0000}
+\definecolor{lightred}{HTML}{ff0000}
+\definecolor{iphtlgreen}{RGB}{255,0,0}
+\definecolor{iphtdgreen}{HTML}{00987c}
+
+
+\begin{poster}
+{
+columns=4,
+grid=false,
+headerborder=open, % Adds a border around the header of content boxes
+colspacing=1em, % Column spacing
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=white, % Background color for the gradient on the right side of the poster
+borderColor=iphtdgreen, % Border color
+headerColorOne=iphtlgreen!80!yellow, % Background color for the header in the content boxes (left side)
+headerColorTwo=white, % Background color for the header in the content boxes (right side)
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+textborder=rounded, %rectangle, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=false, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0.17\textheight, % Height of the header
+headershape=rounded, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headershade=plain,
+headerfont=\Large \textsf, % Large, bold and sans serif font in the headers of content boxes
+%textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+linewidth=2pt % Width of the border lines around content boxes
+}
+{}
+%
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR NAME
+%----------------------------------------------------------------------------------------
+%
+{
+\vspace*{0.7cm}
+\textsf %Sans Serif
+{\huge This is an Awesome\\[0.3cm] Poster Template 
+}
+} % Poster title
+{\sf\vspace{0.2em}\\
+\large Felix Wechsler$^{1}$, Christophe Moser$^{1}$
+\vspace{0.1em}\\
+\small{$^1$Laboratory of Applied Photonics Devices,\\Ecole Polytechnique Fédérale de Lausanne (EPFL),\\ Lausanne, Switzerland
+felix.wechsler@epfl.ch\\
+}}%
+{
+    \includegraphics[width=7cm]{figures/logo_EPFL.pdf}
+}
+
+\headerbox{Setup for Tomographic Printing}{name=setup, column=0,row=0, span=4}{
+    \lipsum[1]
+    \begin{center}
+        \includegraphics[width=16cm]{figures/logo_EPFL.pdf}
+    \end{center}
+}
+
+
+\headerbox{Nonnegative Pattern Calculation}{name=pat, column=0, span=2, below=setup}{
+    \begin{mdframed}[leftmargin=10pt,rightmargin=10pt]
+    Algorithm (similar to \cite{Rackson_Champley_Toombs_Fong_Bansal_Taylor_Shusteff_McLeod_2021}):
+    \begin{itemize}
+        \item[1)] asdasda asddsa 
+        \item[2)] asda 
+        \item[3)]  asdsad
+        \item[4)]asdasd 
+        \item[5)] asdmasmd 
+        \item[6)] If quality is not sufficient $\rightarrow$ 2
+    \end{itemize}
+    \end{mdframed}
+}
+
+
+
+\headerbox{lalala}{name=wave, column=2, span=2, below=setup}{
+}
+
+
+\headerbox{Example }{name=prints, column=2, span=2, below=wave}{
+asdasd
+}
+
+\headerbox{References}{name=references,column=0,span=2, below=pat}{
+ \renewcommand{\section}[2]{\vskip 0.05em} % Get rid of the default "References" section title
+ \renewcommand*{\bibfont}{\tiny}
+ \nocite{*} % Insert publications even if they are not cited in the poster
+ \printbibliography
+ }
+
+
+
+
+
+
+
+\end{poster}
+
+\end{document}
+
